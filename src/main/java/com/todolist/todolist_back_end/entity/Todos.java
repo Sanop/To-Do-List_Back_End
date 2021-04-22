@@ -17,6 +17,7 @@ public class Todos {
     private int id;
     private String text;
     private boolean isComplete;
+    @Enumerated(EnumType.STRING)
     private Priority priority;
 
     public Todos(int id, String text, boolean isComplete, Priority priority) {
