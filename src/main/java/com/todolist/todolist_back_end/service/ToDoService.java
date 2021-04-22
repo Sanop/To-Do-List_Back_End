@@ -18,11 +18,11 @@ public class ToDoService {
     @Autowired
     private ToDoRepository toDoRepository;
 
-    public void addToDo(Todos todo){
+    public void addToDo(Todos todo)throws Exception{
         toDoRepository.save(todo);
     }
 
-    public List<Todos> getAllToDos(){
+    public List<Todos> getAllToDos() throws Exception{
         return toDoRepository.findAll();
     }
 }

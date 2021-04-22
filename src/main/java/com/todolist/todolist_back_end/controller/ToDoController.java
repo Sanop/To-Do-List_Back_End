@@ -1,7 +1,9 @@
 package com.todolist.todolist_back_end.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RestController;
+import com.todolist.todolist_back_end.entity.Todos;
+import com.todolist.todolist_back_end.service.ToDoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author : K.S.P.D De Silva <sanodeemantha@gmail.com>
@@ -10,5 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*")
+@RequestMapping(path = "api/v1/todo")
 public class ToDoController {
+
+    @Autowired
+    private ToDoService toDoService;
+
+    @PostMapping
+    public void addToDo(@RequestBody Todos todo){
+        try {
+            toDoService.addToDo(todo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
